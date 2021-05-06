@@ -22,4 +22,12 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.bm-burger-button {
+  position: fixed;
+  width: 26px;
+  height: 20px;
+  left: 26px;
+  top: 25px;
+  cursor: pointer;
+}
 </style>
