@@ -10,6 +10,7 @@
 
 <script>
 import { api } from "../../services.js";
+import { seralize } from "../../helpers.js";
 export default {
   data() {
     return {
@@ -17,9 +18,16 @@ export default {
     };
   },
 
+  computed: {
+    url() {
+      const query = seralize(this.$route.query);
+      return `/produto?_limit=10${query}`;
+    }
+  },
+
   methods: {
     getProdutos() {
-      api.get("/produto").then(response => {
+      api.get(this.url).then(response => {
         this.produtos = response.data;
       });
     }
@@ -27,6 +35,12 @@ export default {
 
   created() {
     this.getProdutos();
+  },
+
+  watch: {
+    url() {
+      this.getProdutos();
+    }
   }
 };
 </script>
