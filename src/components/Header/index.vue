@@ -22,7 +22,6 @@
     </div>
     <div class="iconsMenu">
       <nav class="iconsM">
-        <font-awesome-icon icon="search" />
         <font-awesome-icon icon="user" />
         <font-awesome-icon icon="heart" />
         <font-awesome-icon icon="shopping-cart" />
