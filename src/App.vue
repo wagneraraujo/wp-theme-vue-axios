@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <Header />
-    <router-view />
+    <div>
+      <transition mode="out-in">
+        <router-view />
+      </transition>
+    </div>
     <Footer />
   </div>
 </template>

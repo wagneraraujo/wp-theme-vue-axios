@@ -10,7 +10,7 @@
             <li><router-link to="/">Home</router-link></li>
             <li><router-link to="/">Home</router-link></li>
             <li><router-link to="/">Home</router-link></li>
-            <li><router-link to="/">Home</router-link></li>
+            <li><router-link to="/login">Login</router-link></li>
           </ul>
         </nav>
       </div>
@@ -22,7 +22,9 @@
     </div>
     <div class="iconsMenu">
       <nav class="iconsM">
-        <font-awesome-icon icon="user" />
+        <router-link to="/login">
+          <font-awesome-icon icon="user" />
+        </router-link>
         <font-awesome-icon icon="heart" />
         <font-awesome-icon icon="shopping-cart" />
       </nav>
