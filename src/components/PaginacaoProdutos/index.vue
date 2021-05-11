@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul class="paginacao">
-      <li v-for="pagina in paginasTotal" :key="pagina">
+      <li v-for="pagina in paginas" :key="pagina">
         <router-link :to="{ query: query(pagina) }">{{ pagina }}</router-link>
       </li>
     </ul>
@@ -34,6 +34,21 @@ export default {
   },
 
   computed: {
+    paginas() {
+      //pagina atual
+      const current = Number(this.$route.query._page);
+
+      //total de paginas
+      /* const range = 3; */
+      const total = this.paginasTotal;
+      const pagesArray = [];
+
+      for (let i = 1; i <= total; i++) {
+        pagesArray.push(i);
+      }
+      pagesArray.splice(0, current);
+      return pagesArray;
+    },
     paginasTotal() {
       const total = this.produtosTotal / this.produtosPorPagina;
       /* se o valor for negativo */

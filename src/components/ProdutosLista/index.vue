@@ -2,21 +2,21 @@
   <section class="py-2">
     <div v-if="produtos" class="grid grid-cols gap-4 md:grid-cols-3">
       <div
-        v-for="produto in produtos"
+        v-for="(produto, index) in produtos"
         class="border-gray-100 produto shadow-md p-4 my-4"
-        :key="produto.id"
+        :key="index"
       >
-        <router-link to="/">
+        <router-link :to="{ name: 'produto', params: { id: produto.id } }">
           <img v-if="produto.fotos" :src="produto.fotos[o].src" alt="" />
           <h3 class="text-xl text-gray-600">{{ produto.nome }}</h3>
           <p class="text-md text-gray-400">{{ produto.descricao }}</p>
           <h2 class="text-3xl text-green-900">
-            R$
-            {{ produto.preco }}
+            {{ produto.preco | numeroPreco }}
           </h2>
         </router-link>
       </div>
     </div>
+    <div v-else><CarregandoPagina></CarregandoPagina></div>
     <div v-if="produtos && produtos.length === 0">
       <p>Busca sem resultados, tente outra palavra</p>
     </div>
