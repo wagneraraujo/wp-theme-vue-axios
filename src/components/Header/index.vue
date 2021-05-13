@@ -21,6 +21,8 @@
       </router-link>
     </div>
     <div class="iconsMenu">
+      <router-link to="" v-if="$store.state.login">{{ nome }}</router-link>
+      <router-link to="/login" v-else>Login</router-link>
       <nav class="iconsM">
         <router-link to="/login">
           <font-awesome-icon icon="user" />
@@ -38,6 +40,12 @@ export default {
   name: "Header",
   components: {
     Slide
+  },
+
+  computed: {
+    nome() {
+      return this.$store.state.usuario.nome.replace(/ .*, ""/);
+    }
   }
 };
 </script>

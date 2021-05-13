@@ -23,6 +23,7 @@
       </div>
       <div>
         <button
+          @click.prevent="logar"
           class="mt-6 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
         >
           Login
@@ -51,7 +52,11 @@ export default {
   },
 
   methods: {
-    logar() {}
+    logar() {
+      // qual valor que quero mudar e o payload => true
+      this.$store.dispatch("getUsuario", true);
+      this.$route.push({ name: "usuario" });
+    }
   }
 };
 </script>

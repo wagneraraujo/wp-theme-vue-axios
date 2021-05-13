@@ -3,6 +3,8 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Produto from "../views/Produto";
 import Login from "../views/Login";
+import Cadastro from "../views/Cadastro";
+import Usuario from "../views/Usuario";
 Vue.use(VueRouter);
 
 const routes = [
@@ -23,6 +25,18 @@ const routes = [
     path: "/login",
     name: "login",
     component: Login
+  },
+
+  {
+    path: "/usuario",
+    name: "usuario",
+    component: Usuario
+  },
+
+  {
+    path: "/cadastro",
+    name: "cadastro",
+    component: Cadastro
   }
 ];
 
